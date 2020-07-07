@@ -1,0 +1,93 @@
+---
+openapi: 3.0.1
+info:
+  title: Greeting API
+  description: Provides access to the API operations
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: http://{host}:{port}
+  variables:
+    host:
+      default: localhost
+    port:
+      default: "8080"
+paths:
+  /api/greet:
+    get:
+      description: Greet the world
+      operationId: greetTheWorld
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GreetDTO'
+  /api/greet/greeting:
+    get:
+      description: Get greeting
+      operationId: getGreeting
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GreetingDTO'
+    put:
+      description: Update greeting
+      operationId: updateGreeting
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - greeting
+              type: object
+              properties:
+                greeting:
+                  type: string
+                  nullable: false
+              example: '{"greeting" : "Hola"}'
+        required: true
+      responses:
+        "204":
+          description: Greeting updated
+        "400":
+          description: Invalid 'greeting' request
+  /api/greet/{name}:
+    get:
+      description: Greet someone
+      operationId: greetSomeone
+      parameters:
+      - name: name
+        in: path
+        description: name
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GreetDTO'
+components:
+  schemas:
+    GreetingDTO:
+      required:
+      - greeting
+      type: object
+      properties:
+        greeting:
+          type: string
+          nullable: false
+    GreetDTO:
+      type: object
+      properties:
+        message:
+          type: string
