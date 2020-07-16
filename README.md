@@ -6,9 +6,20 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=stephan-mueller_vertx-showcase&metric=alert_status)](https://sonarcloud.io/dashboard?id=stephan-mueller_vertx-showcase)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=stephan-mueller_vertx-showcase&metric=coverage)](https://sonarcloud.io/dashboard?id=stephan-mueller_vertx-showcase)
 
-This is a showcase for the the microservice framework [Eclipse Vert.x](https://vertx.io). It contains a hello world application, which demonstrates several features of Eclipse Vert.x.
+This is a showcase for the the microservice framework [Eclipse Vert.x](https://vertx.io). It contains a hello world application, 
+which demonstrates several features of Eclipse Vert.x.
 
-Software requirements to run the samples are `maven`, `openjdk-1.8` (or any other 1.8 JDK) and `docker`. When running the Maven lifecycle it will create the war package. The war will be copied into a Docker image using Spotify's `dockerfile-maven-plugin` during the package phase. 
+Software requirements to run the samples are `maven`, `openjdk-1.8` (or any other 1.8 JDK) and `docker`. 
+When running the Maven lifecycle it will create the war package. The war will be copied into a Docker image using Spotify's 
+`dockerfile-maven-plugin` during the package phase. 
+
+**Notable Features:**
+* Usage of vertx-web-api-contract with openapi.yaml
+* Integration of health check
+* Testcontainer-Tests with Rest-Assured, Cucumber and Postman/newman
+* Code-Coverage for Testcontainer-Tests
+* [CircleCI](https://circleci.com) Integration
+* [Sonarcloud](https://sonarcloud.io) Integration
 
 ## How to run
 
