@@ -20,7 +20,7 @@
 
         <version.vertx>3.9.1</version.vertx>
 
-        <version.resteasy>3.12.1.Final</version.resteasy>
+        <version.resteasy>4.5.7.Final</version.resteasy>
 
         <version.apache_commons-lang>3.10</version.apache_commons-lang>
 
